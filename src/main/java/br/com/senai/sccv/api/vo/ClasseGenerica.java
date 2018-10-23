@@ -1,11 +1,11 @@
 package br.com.senai.sccv.api.vo;
 
-public class Cidade {
+public class ClasseGenerica {
 	
 	private Integer codigo;
 	private String nome;
 	
-	public Cidade() {
+	public ClasseGenerica() {
 		// TODO Auto-generated constructor stub
 	}
 

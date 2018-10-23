@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import javax.swing.plaf.synth.SynthSeparatorUI;
 
 public class ConnectionDB {
 	private static Connection con;

@@ -1,31 +1,49 @@
 package br.com.senai.sccv.api.dao;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.senai.sccv.api.config.ConnectionDB;
-import br.com.senai.sccv.api.vo.Cidade;
+import br.com.senai.sccv.api.vo.ClasseGenerica;
 
 public class AreaDao {
 	
 	Connection con;
 	PreparedStatement ps;
 	
-	public List<Cidade> listarAreasPorCidades () throws SQLException{
+	
+	public List<ClasseGenerica> listarAreasPorCidades (List<ClasseGenerica> cidades) throws SQLException{
+			
 		String sql = "SELECT c.* FROM curriculum_vitae cv "
-				+ "INNER JOIN categoria c On (cv.id_categoria = c.id)"
-				+ "	+ INNER JOIN usuario u On (cv.id_usuario = u.id)"
-				+ "WHERE c.id IN (1,2,3)";
+				+ "INNER JOIN categoria c On (cv.id_categoria = c.id) "
+				+ "INNER JOIN usuario u On (cv.id_usuario = u.id) "
+				+ "WHERE c.id IN (";
+		
+		for(ClasseGenerica c : cidades) {
+			sql += c.getCodigo() + ",";
+		}
+		sql = sql.substring(0, sql.length() - 1);
+		sql += ")";
 		
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);
 		
 		ResultSet rs = ps.executeQuery();
+		List<ClasseGenerica> categoria = new ArrayList<ClasseGenerica>();
+		while (rs.next()) {
+			ClasseGenerica cid = new ClasseGenerica();
+			cid.setCodigo(rs.getInt("id"));
+			cid.setNome(rs.getString("nome"));
+			
+			categoria.add(cid);
+		}
 		
-		return null;
+		return categoria;
 		
 	}
 
