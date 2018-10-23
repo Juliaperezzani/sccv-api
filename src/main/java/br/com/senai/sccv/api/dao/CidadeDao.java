@@ -17,7 +17,7 @@ public class CidadeDao {
 
 	
 	public List<Cidade> listarCidadesDisponiveis() throws SQLException{
-		String sql = "SELECT c.nome as cidade FROM curriculum_vitae cv " + 
+		String sql = "SELECT c.id AS id, c.nome as cidade FROM curriculum_vitae cv " + 
 				"INNER JOIN usuario u ON (cv.id_usuario = u.id) " + 
 				"INNER JOIN cidade c ON (u.id_cidade = c.id)";
 		
@@ -29,7 +29,7 @@ public class CidadeDao {
 		while (rs.next()) {
 			Cidade cid = new Cidade();
 			cid.setCodigo(rs.getInt("id"));
-			cid.setNome(rs.getString("nome"));
+			cid.setNome(rs.getString("cidade"));
 			
 			lista.add(cid);
 		}
@@ -39,3 +39,5 @@ public class CidadeDao {
 	}
 
 }
+
+

@@ -25,22 +25,12 @@ public class CidadeService {
 	public CidadeService() {
 		cDao = new CidadeDao(); 
 	}
-	
-	@GET
-	@Path("/todos")
-	public List<Cidade> buscarTodas(){
-		try {
-			
-			return cDao.listar();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+
 	
 	@GET
 	@Path("/disponiveis")
+	
+	
 	public List<Cidade> listarCurriculos(){
 		try {
 			
@@ -52,21 +42,7 @@ public class CidadeService {
 		return null;
 	}
 	
-	@POST
-	@Path("/add")
-	public Response adicionarCidade(Cidade c){
-		GenericResponse response = new GenericResponse();
-		try {
-			cDao.inserir(c);
-			response.setStatus(true);
-			response.setMessage("Cidade incluído com sucesso");
-			return Response.ok(response).build();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;		
-	}
+	
 
 	
 }
