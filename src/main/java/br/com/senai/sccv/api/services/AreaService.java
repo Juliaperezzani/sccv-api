@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 import br.com.senai.sccv.api.dao.AreaDao;
 import br.com.senai.sccv.api.vo.ClasseGenerica;
+import br.com.senai.sccv.api.vo.Filtro;
 
 @Path("/ws/areas")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -26,10 +27,10 @@ public class AreaService {
 		
 	@GET
 	@Path("/por-cidades")
-	public List<ClasseGenerica> listarAreasPorCidades(List<ClasseGenerica> cidades){
+	public List<ClasseGenerica> listarAreasPorCidades(Filtro filtro ){
 		try {
 			
-			return aDao.listarAreasPorCidades(cidades);
+			return aDao.listarAreasPorCidades(filtro.getIdCidade());
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

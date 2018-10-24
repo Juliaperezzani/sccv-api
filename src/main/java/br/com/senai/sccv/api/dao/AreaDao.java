@@ -17,15 +17,15 @@ public class AreaDao {
 	PreparedStatement ps;
 	
 	
-	public List<ClasseGenerica> listarAreasPorCidades (List<ClasseGenerica> cidades) throws SQLException{
+	public List<ClasseGenerica> listarAreasPorCidades (List<Integer> cidades) throws SQLException{
 			
 		String sql = "SELECT c.* FROM curriculum_vitae cv "
 				+ "INNER JOIN categoria c On (cv.id_categoria = c.id) "
 				+ "INNER JOIN usuario u On (cv.id_usuario = u.id) "
 				+ "WHERE c.id IN (";
 		
-		for(ClasseGenerica c : cidades) {
-			sql += c.getCodigo() + ",";
+		for(Integer c : cidades) {
+			sql += c + ",";
 		}
 		sql = sql.substring(0, sql.length() - 1);
 		sql += ")";
@@ -42,6 +42,7 @@ public class AreaDao {
 			
 			categoria.add(cid);
 		}
+		
 		
 		return categoria;
 		
