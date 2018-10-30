@@ -1,5 +1,6 @@
 package br.com.senai.sccv.api.services;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import br.com.senai.sccv.api.dao.CursoDao;
@@ -13,6 +14,15 @@ public class CursoService {
 		rDao = new CursoDao();
 	}
 	
-	public List<ClasseGenerica> listarCursosPorArea 
+	public List<ClasseGenerica> listarCursosPorArea (){
+		try {
+			
+			return rDao.listarCursoPorFiltro();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }
