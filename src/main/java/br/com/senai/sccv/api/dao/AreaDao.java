@@ -22,13 +22,14 @@ public class AreaDao {
 		String sql = "SELECT c.* FROM curriculum_vitae cv "
 				+ "INNER JOIN categoria c On (cv.id_categoria = c.id) "
 				+ "INNER JOIN usuario u On (cv.id_usuario = u.id) "
-				+ "WHERE c.id IN (";
+				+ "WHERE u.id_cidade IN (";
 		
 		for(Integer c : cidades) {
 			sql += c + ",";
 		}
 		sql = sql.substring(0, sql.length() - 1);
-		sql += ")";
+		sql += ")"
+				+ " GROUP BY c.nome";
 		
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);

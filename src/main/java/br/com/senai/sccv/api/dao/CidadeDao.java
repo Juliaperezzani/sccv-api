@@ -19,7 +19,8 @@ public class CidadeDao {
 	public List<ClasseGenerica> listarCidadesDisponiveis() throws SQLException{
 		String sql = "SELECT c.id AS id, c.nome as cidade FROM curriculum_vitae cv " + 
 				"INNER JOIN usuario u ON (cv.id_usuario = u.id) " + 
-				"INNER JOIN cidade c ON (u.id_cidade = c.id)";
+				"INNER JOIN cidade c ON (u.id_cidade = c.id)"
+				+ " GROUP BY c.nome";
 		
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);
