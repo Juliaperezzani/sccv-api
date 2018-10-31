@@ -15,6 +15,7 @@ public class CursoDao {
 	Connection con;
 	PreparedStatement ps;
 	
+	@SuppressWarnings("unused")
 	public List<ClasseGenerica> listarCursoPorFiltro() throws SQLException{
 		String sql="";
 		
