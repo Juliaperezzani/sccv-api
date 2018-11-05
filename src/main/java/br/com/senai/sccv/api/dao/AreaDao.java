@@ -34,6 +34,8 @@ public class AreaDao {
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);
 		
+		System.out.println(ps.toString());
+		
 		ResultSet rs = ps.executeQuery();
 		List<ClasseGenerica> categoria = new ArrayList<ClasseGenerica>();
 		while (rs.next()) {

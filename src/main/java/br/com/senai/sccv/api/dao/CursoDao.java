@@ -31,13 +31,15 @@ public class CursoDao {
 				sql = sql.substring(0, sql.length() - 1);
 				sql += ")"
 				
-				+ "AND cv.id_categoria = ? "
+				+ " AND cv.id_categoria = ? "
 				+ " GROUP BY cur.nome ";
 				
 		
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);
 		ps.setString(1, filtro.getArea());
+		
+		System.out.println(ps.toString());
 		
 		ResultSet rs = ps.executeQuery();
 		List<ClasseGenerica> Curso = new ArrayList<ClasseGenerica>();

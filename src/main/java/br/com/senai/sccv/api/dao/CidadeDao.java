@@ -25,6 +25,8 @@ public class CidadeDao {
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);
 		
+		System.out.println(ps.toString());
+		
 		ResultSet rs = ps.executeQuery();
 		List<ClasseGenerica> lista = new ArrayList<ClasseGenerica>();
 		while (rs.next()) {
