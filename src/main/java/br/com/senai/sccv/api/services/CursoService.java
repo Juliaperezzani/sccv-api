@@ -10,8 +10,9 @@ import javax.ws.rs.core.MediaType;
 
 import br.com.senai.sccv.api.dao.CursoDao;
 import br.com.senai.sccv.api.vo.ClasseGenerica;
+import br.com.senai.sccv.api.vo.Filtro;
 
-@Path("/ws/porfiltro")
+@Path("/ws/cursos")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class CursoService {
@@ -22,10 +23,11 @@ public class CursoService {
 		rDao = new CursoDao();
 	}
 	
-	public List<ClasseGenerica> listarCursosPorArea (){
+	@Path("/por-filtro")
+	public List<ClasseGenerica> listarCursosPorArea (Filtro filtro){
 		try {
 			
-			return rDao.listarCursoPorFiltro();
+			return rDao.listarCursoPorFiltro(filtro);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
