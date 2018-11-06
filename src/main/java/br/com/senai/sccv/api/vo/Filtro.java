@@ -16,7 +16,7 @@ public class Filtro {
 	private Integer deficiencia;// vai 0=indiferente 1=SIM 2= NÃO
 	private Integer idade_inicio;
 	private Integer idade_fim;
-	private String area;
+	private Integer area;
 
 	// nome, idade inicoon idade fim area
 
@@ -72,11 +72,13 @@ public class Filtro {
 		this.idade_fim = idade_fim;
 	}
 
-	public String getArea() {
+
+
+	public Integer getArea() {
 		return area;
 	}
 
-	public void setArea(String area) {
+	public void setArea(Integer area) {
 		this.area = area;
 	}
 

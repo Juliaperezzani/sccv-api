@@ -37,18 +37,20 @@ public class CursoDao {
 		
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);
-		ps.setString(1, filtro.getArea());
+		ps.setInt(1, filtro.getArea());
 		
 		System.out.println(ps.toString());
 		
 		ResultSet rs = ps.executeQuery();
-		List<ClasseGenerica> Curso = new ArrayList<ClasseGenerica>();
+		List<ClasseGenerica> cursos = new ArrayList<ClasseGenerica>();
 		while(rs.next()) {
 			ClasseGenerica cid = new ClasseGenerica();
 			cid.setCodigo(rs.getInt("id"));
 			cid.setNome(rs.getString("nome"));
+			
+			cursos.add(cid);
 		}
-		return Curso;
+		return cursos;
 	}
 
 }
