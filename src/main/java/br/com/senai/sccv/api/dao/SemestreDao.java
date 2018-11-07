@@ -45,8 +45,8 @@ public class SemestreDao {
 			List<ClasseGenerica> semestre = new ArrayList<ClasseGenerica>();
 			while(rs.next()) {
 				ClasseGenerica cid = new ClasseGenerica();
-				cid.setCodigo(rs.getInt("id"));
-				cid.setNome(rs.getString("nome"));
+				cid.setCodigo(rs.getInt("semestre"));
+				cid.setNome(rs.getString("semestre"));
 				
 				semestre.add(cid);
 			}
