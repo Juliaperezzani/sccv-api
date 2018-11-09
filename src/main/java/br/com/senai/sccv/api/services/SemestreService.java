@@ -13,6 +13,7 @@ import br.com.senai.sccv.api.dao.SemestreDao;
 import br.com.senai.sccv.api.vo.ClasseGenerica;
 import br.com.senai.sccv.api.vo.Filtro;
 
+@Path("/ws/semestre")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class SemestreService {
@@ -24,7 +25,7 @@ public class SemestreService {
 	}
 	
 	@POST
-	@Path("/semestre")
+	@Path("/por-filtro")
 	public List<ClasseGenerica> listarSemestrePorCurso (Filtro filtro){
 		try {
 			

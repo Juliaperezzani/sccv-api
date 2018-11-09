@@ -20,7 +20,7 @@ public class SemestreDao {
 		
 		List<Integer> cidades = filtro.getIdCidade();
 		
-		String sql = "SELECT sem.* FROM curriculum_vitae cv "
+		String sql = "SELECT cv.* FROM curriculum_vitae cv "
 				+ "INNER JOIN curso cur On cv.id_curso = cur.id "
 				+ "INNER JOIN usuario u On (cv.id_usuario = u.id) "
 				+ "WHERE u.id_cidade IN (";
@@ -32,12 +32,13 @@ public class SemestreDao {
 				sql += ")"
 				
 				+ " AND cv.id_categoria = ? "
-				+ " AND cv.id_curso "
+				+ " AND cv.id_curso = ? "
 				+ " GROUP BY cur.nome ";
 				
 			con = ConnectionDB.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, filtro.getArea());
+			ps.setInt(2, filtro.getIdCurso());
 				
 			System.out.println(ps.toString());
 			
