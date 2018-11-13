@@ -11,7 +11,6 @@ import javax.ws.rs.core.MediaType;
 
 import br.com.senai.sccv.api.dao.FiltroDao;
 import br.com.senai.sccv.api.vo.ClasseGenerica;
-import br.com.senai.sccv.api.vo.Filtro;
 
 @Path("/ws/filtro")
 @Consumes(MediaType.APPLICATION_JSON)

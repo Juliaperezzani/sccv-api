@@ -9,7 +9,6 @@ import java.util.List;
 
 import br.com.senai.sccv.api.config.ConnectionDB;
 import br.com.senai.sccv.api.vo.ClasseGenerica;
-import br.com.senai.sccv.api.vo.Filtro;
 
 public class FiltroDao {
 	
