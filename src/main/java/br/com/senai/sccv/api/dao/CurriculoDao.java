@@ -20,40 +20,33 @@ public class CurriculoDao {
 		
 		List<Integer> cidades = filtro.getIdCidade();
 		
-		/*
-		 SELECT * FROM curriculum_vitae cv
-				INNER JOIN curso cur On cv.id_curso = cur.id 
-				INNER JOIN usuario u On (cv.id_usuario = u.id)
-                INNER JOIN formacao f ON (f.id_curriculum_vitae = cv.id)
-				WHERE u.id_cidade IN ( 229, 3852)
-                AND cv.id_categoria = 1
-                AND cv.id_curso = 2
-                AND cv.semestre = 4
-                AND u.id_sexo = 2
-				AND u.pessoa_pcd = 0
-                AND (SELECT FROM_UNIXTIME((u.idade)/1000, "%Y")) BETWEEN "1993" AND "2000"
-                AND cv.id IN (SELECT e.id_curriculum_vitae FROM experiencia e WHERE e.id_curriculum_vitae = cv.id)
+		String sql = "SELECT * FROM curriculum_vitae cv"
+			+	"INNER JOIN curso cur On cv.id_curso = cur.id" 
+			+	"INNER JOIN usuario u On (cv.id_usuario = u.id)"
+            +   "INNER JOIN formacao f ON (f.id_curriculum_vitae = cv.id)"
+			+	"WHERE u.id_cidade IN ( ?, ?)"
+            +   "AND cv.id_categoria = ?"
+            +   "AND cv.id_curso = ?"
+            +   "AND cv.semestre = ?"
+            +   "AND u.id_sexo = ?"
+			+   "AND u.pessoa_pcd = ?"
+            +   "AND (SELECT FROM_UNIXTIME((u.idade)/1000, '%Y')) BETWEEN "?" AND "?""
+            +    "AND cv.id IN (SELECT e.id_curriculum_vitae FROM experiencia e WHERE e.id_curriculum_vitae = cv.id)"
 		  
-		 */
-		
-		String sql = "SELECT cv.* FROM curriculum_vitae cv "
-				+ "INNER JOIN curso cur On cv.id_curso = cur.id "
-				+ "INNER JOIN usuario u On (cv.id_usuario = u.id) "
-				+ "INNER JOIN curriculo curri On (cv.id_curriculo = curri.id)"
-				+ "WHERE u.id_cidade IN (";
-				
-				for(Integer c : cidades) {
-					sql += c + ",";
-				}
-				sql = sql.substring(0, sql.length() - 1);
-				sql += ")"
-				
-				+ " AND cv.id_categoria = ? "
-				+ " GROUP BY cur.nome ";
+	
 				
 				con = ConnectionDB.getConnection();
 				ps = con.prepareStatement(sql);
 				ps.setInt(1, filtro.getArea());
+				ps.setInt(2,filtro.getIdCurso());
+				ps.setInt(3, filtro.getIdCidade());
+				ps.setInt(4,filtro.getIdCurso());
+				ps.setInt(5, filtro.getSemestre());
+				ps.setInt(6, filtro.getSexo());
+				ps.setInt(7, filtro.getDeficiencia());
+				ps.setInt(8, filtro.getIdade_inicio());
+				ps.setInt(9, filtro.getIdade_fim());
+				ps.setInt(10, filtro.getExperiencia());
 				
 				System.out.println(ps.toString());
 				
