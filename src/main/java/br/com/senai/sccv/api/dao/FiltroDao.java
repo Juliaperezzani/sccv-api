@@ -9,13 +9,17 @@ import java.util.List;
 
 import br.com.senai.sccv.api.config.ConnectionDB;
 import br.com.senai.sccv.api.vo.ClasseGenerica;
+import br.com.senai.sccv.api.vo.Filtro;
 
 public class FiltroDao {
 	
 	Connection con;
 	PreparedStatement ps;
 	
-	public List<ClasseGenerica> quantidade() throws SQLException{
+	public List<ClasseGenerica> quantidade(Filtro filtro) throws SQLException{
+		
+		
+		
 		String sql="SELECT * FROM curriculum_vitae cv";
 		
 		con = ConnectionDB.getConnection();
