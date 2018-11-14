@@ -7,13 +7,13 @@ public class Filtro {
 	private String nomeFiltro;
 	private Integer id;
 	private Integer idCurso; 
-	private Integer semestre; // vai
+	private Integer semestre; 
 	private List<Integer> idCidade; 
 	private Integer experiencia; // 0=indiferente 1=SIM 2= NÃO
-	private Integer sexo; // vai 0=indiferente 1=MACHO 2= MULHER
-	private Integer deficiencia;// vai 0=indiferente 1=SIM 2= NÃO
-	private Integer idade_inicio;//
-	private Integer idade_fim; //
+	private Integer sexo; // vai 0=indiferente 1=MACHO 2= MULHER      FOOOOOOOOOOOI
+	private Integer deficiencia;// vai 0=indiferente 1=SIM 2= NÃO     FOOOOOOOOOOOI
+	private Integer idade_inicio;
+	private Integer idade_fim; 
 	private Integer area;
 
 	// nome, idade inicoon idade fim area
