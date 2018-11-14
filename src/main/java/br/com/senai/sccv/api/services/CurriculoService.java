@@ -25,7 +25,7 @@ public class CurriculoService {
 	}
 	
 	@POST
-	@Path("/lista-curriculo")
+	@Path("/por-filtro")
 	public List<ClasseGenerica> listarCurriculum (Filtro filtro){
 		try {
 			

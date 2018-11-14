@@ -30,7 +30,7 @@ public class FiltroDao {
                 + " AND cv.semestre = ? "
                 + " AND u.id_sexo = ? " 
 				+ " AND u.pessoa_pcd = 0 "
-                + " AND (SELECT FROM_UNIXTIME((u.idade)/1000, '%Y')) BETWEEN "?" AND "?"
+                + " AND (SELECT FROM_UNIXTIME((u.idade)/1000, '%Y')) BETWEEN ? AND ?"
                 + " AND cv.id IN (SELECT e.id_curriculum_vitae FROM experiencia e WHERE e.id_curriculum_vitae = cv.id)";
 		
 		con = ConnectionDB.getConnection();

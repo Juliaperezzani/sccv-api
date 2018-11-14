@@ -7,6 +7,7 @@ import javax.ws.rs.core.Application;
 
 import br.com.senai.sccv.api.services.AreaService;
 import br.com.senai.sccv.api.services.CidadeService;
+import br.com.senai.sccv.api.services.CurriculoService;
 import br.com.senai.sccv.api.services.CursoService;
 import br.com.senai.sccv.api.services.SemestreService;
 
@@ -19,6 +20,7 @@ public class ApplicationConfig extends Application {
 		recursos.add(AreaService.class);
 		recursos.add(CursoService.class);
 		recursos.add(SemestreService.class);
+		recursos.add(CurriculoService.class);
 		return recursos;
 	}
 	
