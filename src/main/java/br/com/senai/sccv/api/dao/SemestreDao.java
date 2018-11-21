@@ -37,7 +37,7 @@ public class SemestreDao {
 				
 			con = ConnectionDB.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, filtro.getArea());
+			ps.setString(1, filtro.getArea());
 			ps.setInt(2, filtro.getIdCurso());
 				
 			System.out.println(ps.toString());

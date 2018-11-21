@@ -35,7 +35,7 @@ public class FiltroDao {
 		
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);
-		ps.setInt(1, filtro.getArea());
+		ps.setString(1, filtro.getArea());
 		ps.setInt(2, filtro.getExperiencia());
 		ps.setInt(3, filtro.getIdCurso());
 		ps.setInt(4, filtro.getSemestre());

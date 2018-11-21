@@ -37,7 +37,7 @@ public class CursoDao {
 		
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);
-		ps.setInt(1, filtro.getArea());
+		ps.setString(1, filtro.getArea());
 		
 		System.out.println(ps.toString());
 		
