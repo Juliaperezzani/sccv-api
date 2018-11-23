@@ -70,10 +70,6 @@ public class CurriculoDao {
 		ps.setInt(4, filtro.getIdade_inicio());
 		ps.setInt(5, filtro.getIdade_fim());
 
-		if (filtro.getSexo() != 0) {
-			ps.setInt(7, filtro.getSexo());
-		}
-
 		System.out.println(ps.toString());
 
 		ResultSet rs = ps.executeQuery();
