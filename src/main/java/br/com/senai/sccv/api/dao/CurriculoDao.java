@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.senai.sccv.api.config.ConnectionDB;
-import br.com.senai.sccv.api.vo.ClasseGenerica;
 import br.com.senai.sccv.api.vo.Curriculo;
 import br.com.senai.sccv.api.vo.Experiencia;
 import br.com.senai.sccv.api.vo.Filtro;
