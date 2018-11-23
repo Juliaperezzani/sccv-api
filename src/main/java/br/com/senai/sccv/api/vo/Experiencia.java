@@ -1,4 +1,4 @@
-package service;
+package br.com.senai.sccv.api.vo;
 
 import java.util.Calendar;
 

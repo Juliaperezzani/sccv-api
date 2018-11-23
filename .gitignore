@@ -4,3 +4,4 @@ target/classes/br/com/senai/sccv/api/config/ConnectionDB.class
 target/classes/br/com/senai/sccv/api/dao/AreaDao.class
 target/
 /target/
+.settings/org.eclipse.jdt.core.prefs

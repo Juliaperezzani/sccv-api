@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 import br.com.senai.sccv.api.dao.CurriculoDao;
 import br.com.senai.sccv.api.vo.ClasseGenerica;
+import br.com.senai.sccv.api.vo.Curriculo;
 import br.com.senai.sccv.api.vo.Filtro;
 
 @Path("/ws/curriculos")
@@ -21,12 +22,17 @@ public class CurriculoService {
 	CurriculoDao curriDao;
 	
 	public CurriculoService(){
-		curriDao = new CurriculoDao();
+		try {
+			curriDao = new CurriculoDao();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@POST
 	@Path("/por-filtro")
-	public List<ClasseGenerica> listarCurriculum (Filtro filtro){
+	public List<Curriculo> listarCurriculum (Filtro filtro){
 		try {
 			
 			return curriDao.listarCurriculoPorFiltro(filtro);

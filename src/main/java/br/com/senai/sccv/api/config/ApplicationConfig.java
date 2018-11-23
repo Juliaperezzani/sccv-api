@@ -16,11 +16,11 @@ public class ApplicationConfig extends Application {
 	@Override
 	public Set<Class<?>> getClasses() {
 		Set<Class<?>> recursos = new HashSet<>();
+		recursos.add(CurriculoService.class);
 		recursos.add(CidadeService.class);
 		recursos.add(AreaService.class);
 		recursos.add(CursoService.class);
 		recursos.add(SemestreService.class);
-		recursos.add(CurriculoService.class);
 		return recursos;
 	}
 	
