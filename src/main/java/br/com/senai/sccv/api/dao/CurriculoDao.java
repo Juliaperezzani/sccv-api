@@ -31,7 +31,7 @@ public class CurriculoDao {
 				+ " INNER JOIN curso cur On cv.id_curso = cur.id" + " INNER JOIN usuario u On (cv.id_usuario = u.id)"
 				+ " INNER JOIN cidade AS cid ON (cid.id = u.id_cidade)"
 				+ " INNER JOIN estado AS est ON (est.id = u.id_estado)"
-				+ " INNER JOIN formacao f ON (f.id_curriculum_vitae = cv.id)" + " WHERE u.id_cidade IN (";
+				+ " LEFT JOIN formacao f ON (f.id_curriculum_vitae = cv.id)" + " WHERE u.id_cidade IN (";
 
 		for (Integer c : cidades) {
 			sql += c + ",";
@@ -92,7 +92,7 @@ public class CurriculoDao {
 			cid.setFormação(buscaFormacao(id_curriculum_vitae));
 			cid.setExperiencia(buscaExperiencia(id_curriculum_vitae));
 			cid.setSexo(rs.getInt("id_sexo") == 1 ? "Masculino" : "Feminino");
-			cid.setDeficiencia(rs.getInt("pessoa_pcd") == 1 ? "" : "Pessoa com deficiencia");
+			cid.setDeficiencia(rs.getInt("pessoa_pcd") == 0 ? "" : "Pessoa com deficiencia");
 			cid.setNivel_ingles(rs.getInt("nivel_ingles"));
 			cid.setNivel_espanhol(rs.getInt("nivel_espanhol"));
 			cid.setTelefone(rs.getString("numero_telefone"));
