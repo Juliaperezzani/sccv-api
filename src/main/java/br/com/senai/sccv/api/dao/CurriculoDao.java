@@ -38,7 +38,7 @@ public class CurriculoDao {
 		sql = sql.substring(0, sql.length() - 1);
 		sql += ")" + " AND cv.id_categoria = ?" + " AND cv.id_curso = ?" + " AND cv.semestre = ?";
 
-		if (filtro.getDeficiencia() != 0) {
+		if (filtro.getDeficiencia() != 2) {
 			sql += " AND u.pessoa_pcd = " + filtro.getDeficiencia();
 		}
 
@@ -67,8 +67,8 @@ public class CurriculoDao {
 		ps.setInt(1, filtro.getArea());
 		ps.setInt(2, filtro.getIdCurso());
 		ps.setInt(3, filtro.getSemestre());
-		ps.setInt(4, filtro.getIdade_inicio());
-		ps.setInt(5, filtro.getIdade_fim());
+		ps.setInt(4, filtro.getIdade_fim());
+		ps.setInt(5, filtro.getIdade_inicio());
 
 		System.out.println(ps.toString());
 
