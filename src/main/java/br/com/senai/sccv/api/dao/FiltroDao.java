@@ -18,8 +18,6 @@ public class FiltroDao {
 
 	public List<ClasseGenerica> quantidade(Filtro filtro) throws SQLException {
 
-		List<Integer> cidades = filtro.getIdCidade();
-
 		String sql = "SELECT * FROM curriculum_vitae cv " + " INNER JOIN curso cur On cv.id_curso = cur.id "
 				+ " INNER JOIN usuario u On (cv.id_usuario = u.id) "
 				+ " INNER JOIN formacao f ON (f.id_curriculum_vitae = cv.id) " + " WHERE u.id_cidade IN ( 229, 3852) "

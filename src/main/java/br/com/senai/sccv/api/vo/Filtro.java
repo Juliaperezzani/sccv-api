@@ -1,6 +1,5 @@
 package br.com.senai.sccv.api.vo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Filtro {

@@ -10,7 +10,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import br.com.senai.sccv.api.dao.CurriculoDao;
-import br.com.senai.sccv.api.vo.ClasseGenerica;
 import br.com.senai.sccv.api.vo.Curriculo;
 import br.com.senai.sccv.api.vo.Filtro;
 
