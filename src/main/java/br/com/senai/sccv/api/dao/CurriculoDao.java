@@ -94,8 +94,18 @@ public class CurriculoDao {
 			cid.setIdade(rs.getLong("idade"));
 
 			curriculos.add(cid);
+			
+			atualizarPeso(rs.getInt("u.id"));
 		}
 		return curriculos;
+	}
+
+	private void atualizarPeso(int idUsuario) {
+		
+		String sql=" UPDATE table_usuario SET peso = ?";
+		
+		
+		
 	}
 
 	private List<Experiencia> buscaExperiencia(Integer id_curriculum_vitae) throws SQLException {
