@@ -42,13 +42,16 @@ public class CurriculoDao {
 			sql += " AND u.pessoa_pcd = " + filtro.getDeficiencia();
 		}
 
-		switch (filtro.getQualIdioma()) {
-		case 1:
-			sql += " AND u.nivel_ingles > 0";
-			break;
-		case 2:
-			sql += " AND u.nivel_espanhol > 0";
-			break;
+		if (filtro.getQualIdioma() != 0) {
+			switch (filtro.getQualIdioma()) {
+			case 1:
+				sql += " AND u.nivel_ingles > " + String.valueOf(filtro.getNvIdioma() - 1);
+				break;
+			case 2:
+				sql += " AND u.nivel_espanhol > " + String.valueOf(filtro.getNvIdioma() - 1);
+				;
+				break;
+			}
 		}
 
 		sql += " AND (SELECT FROM_UNIXTIME((u.idade)/1000, '%Y')) BETWEEN ? AND ?";
