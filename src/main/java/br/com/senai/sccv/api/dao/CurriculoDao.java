@@ -102,14 +102,21 @@ public class CurriculoDao {
 
 	private void atualizarPeso(int idUsuario) {
 		
-		String sql=" UPDATE table_usuario SET peso = ?";
+		String sql=" UPDATE Usuario SET peso =?, nome=? WHERE idUsuario = ?;";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+        
+		ps.setInt(1,);
 		
 		
+		return ;
 		
 	}
 
 	private List<Experiencia> buscaExperiencia(Integer id_curriculum_vitae) throws SQLException {
 		String sql = "SELECT e.* FROM experiencia AS e "
+				
 				+ "INNER JOIN curriculum_vitae AS cv ON cv.id = e.id_curriculum_vitae "
 				+ "WHERE e.id_curriculum_vitae = ?;";
 
