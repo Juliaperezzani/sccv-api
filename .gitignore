@@ -1,2 +1,5 @@
 target\*
 .classpath
+*.class
+*.MF
+target/m2e-wtp/web-resources/META-INF/maven/br.com.senai/sccv-api/pom.xml
