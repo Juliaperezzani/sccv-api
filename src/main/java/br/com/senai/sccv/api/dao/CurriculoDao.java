@@ -42,7 +42,6 @@ public class CurriculoDao {
 			sql += " AND u.pessoa_pcd = " + filtro.getDeficiencia();
 		}
 
-		// if (filtro.getQualIdioma() != 0) {
 		switch (filtro.getQualIdioma()) {
 		case 1:
 			sql += " AND u.nivel_ingles >= " + String.valueOf(filtro.getNvIdioma());
@@ -52,7 +51,6 @@ public class CurriculoDao {
 			;
 			break;
 		}
-		// }
 
 		sql += " AND (SELECT FROM_UNIXTIME((u.idade)/1000, '%Y')) BETWEEN ? AND ?";
 
